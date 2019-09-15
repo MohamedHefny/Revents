@@ -7,6 +7,14 @@
     android:background="@color/colorPrimary"
     tools:context=".ui.setup.SetupActivity">
 
+    <ProgressBar
+        android:id="@+id/setup_loading_bar"
+        style="@style/HorizontalLoadingBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <include
         android:id="@+id/setup_logo"
         layout="@layout/layout_logo"

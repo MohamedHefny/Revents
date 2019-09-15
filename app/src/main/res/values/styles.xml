@@ -8,4 +8,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="HorizontalLoadingBar" parent="Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:layout_marginTop">-4dp</item>
+        <item name="android:layout_marginBottom">-8dp</item>
+        <item name="android:indeterminate">true</item>
+    </style>
+
 </resources>
