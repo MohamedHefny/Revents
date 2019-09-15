@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp"
+    android:background="@drawable/bg_drak_blue_rounded"
+    android:elevation="2dp"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/item_event_time_ic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/item_event_time_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@id/item_event_time_ic"
+        app:layout_constraintStart_toEndOf="@id/item_event_time_ic"
+        app:layout_constraintTop_toTopOf="@id/item_event_time_ic"
+        tools:text="11:08 AM" />
+
+    <ImageView
+        android:id="@+id/item_event_date_ic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:src="@drawable/ic_date"
+        app:layout_constraintStart_toEndOf="@id/item_event_time_tv"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/item_event_date_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@id/item_event_time_ic"
+        app:layout_constraintStart_toEndOf="@id/item_event_date_ic"
+        app:layout_constraintTop_toTopOf="@id/item_event_time_ic"
+        tools:text="Mon 19, Aug 2019" />
+
+    <TextView
+        android:id="@+id/item_event_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/event_item_title_size"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_event_time_ic"
+        tools:text="Google I/O" />
+
+    <TextView
+        android:id="@+id/item_event_details_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:maxLines="3"
+        android:textColor="#CDCDCD"
+        android:textSize="@dimen/event_item_details_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_event_title_tv"
+        tools:text="Some details and additional information about Google I/O 2019 event." />
+
+    <ImageView
+        android:id="@+id/item_event_weather_ic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_weather"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_event_details_tv"
+        tools:text="15 C" />
+
+    <TextView
+        android:id="@+id/item_event_temp_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@id/item_event_weather_ic"
+        app:layout_constraintStart_toEndOf="@id/item_event_weather_ic"
+        app:layout_constraintTop_toTopOf="@id/item_event_weather_ic"
+        tools:text="15C" />
+
+    <TextView
+        android:id="@+id/item_event_hum_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@id/item_event_weather_ic"
+        app:layout_constraintStart_toEndOf="@id/item_event_temp_tv"
+        app:layout_constraintTop_toTopOf="@id/item_event_weather_ic"
+        tools:text="27D" />
+
+    <ImageView
+        android:id="@+id/item_event_accept_ic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:src="@drawable/ic_accept"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/item_event_reject_ic" />
+
+    <ImageView
+        android:id="@+id/item_event_reject_ic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:src="@drawable/ic_reject"
+        app:layout_constraintBottom_toBottomOf="@id/item_event_accept_ic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/item_event_accept_ic" />
+</androidx.constraintlayout.widget.ConstraintLayout>

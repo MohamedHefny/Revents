@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Revent</string>
+    <string name="events">Events</string>
     <string name="setup_slogan">Start playing with events</string>
 </resources>

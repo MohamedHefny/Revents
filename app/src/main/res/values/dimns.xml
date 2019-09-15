@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <dimen name="splash_logo_text_size">72sp</dimen>
+
     <dimen name="setup_login_btn_bottom_margin">124dp</dimen>
 
-    <dimen name="splash_logo_text_size">72sp</dimen>
+    <!--Event item-->
+    <dimen name="event_item_corners">12dp</dimen>
+    <dimen name="event_item_title_size">18sp</dimen>
+    <dimen name="event_item_details_size">14sp</dimen>
+
+
 
 </resources>
