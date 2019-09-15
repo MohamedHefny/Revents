@@ -1,7 +1,8 @@
-package com.mohamedhefny.revent
+package com.mohamedhefny.revent.ui.splash
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.mohamedhefny.revent.R
 
 class SplashActivity : AppCompatActivity() {
 
