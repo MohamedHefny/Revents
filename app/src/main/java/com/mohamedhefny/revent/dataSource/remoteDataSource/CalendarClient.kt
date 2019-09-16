@@ -20,7 +20,7 @@ internal class CalendarClient(token: String) {
 
     @Throws(IOException::class)
     //TODO refactor this method to return a LiveData object
-    fun print() {
+    fun printEventsList() {
         // Build a new authorized API client service.
         val service = Calendar.Builder(NetHttpTransport(), JSON_FACTORY, credentials)
             .setApplicationName(APPLICATION_NAME)
@@ -34,17 +34,17 @@ internal class CalendarClient(token: String) {
             .setOrderBy("startTime")
             .setSingleEvents(true)
             .execute()
-        val items = events.getItems()
+        val items = events.items
         if (items.isEmpty()) {
             println("No upcoming events found.")
         } else {
             println("Upcoming events")
             for (event in items) {
-                var start = event.getStart().getDateTime()
+                var start = event.start.dateTime
                 if (start == null) {
-                    start = event.getStart().getDate()
+                    start = event.start.date
                 }
-                System.out.printf("%s (%s)\n", event.getSummary(), start)
+                System.out.printf("%s (%s)\n", event.summary, start)
             }
         }
     }
