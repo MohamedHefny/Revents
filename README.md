@@ -18,3 +18,10 @@ This architecture using a layered software architecture.
    [2]: https://developer.android.com/topic/libraries/architecture/room
    [3]: https://developer.android.com/topic/libraries/architecture/viewmodel
    [4]: https://square.github.io/retrofit
+
+ ## Screenshots
+   <p align="center">
+  <img src="https://github.com/MohamedHefny/Revents/blob/master/Screens/1-Splash.png"/>
+  <img src="https://github.com/MohamedHefny/Revents/blob/master/Screens/2-Setup.png"/>
+  <img src="https://github.com/MohamedHefny/Revents/blob/master/Screens/3-Events.png"/>
+</p>
