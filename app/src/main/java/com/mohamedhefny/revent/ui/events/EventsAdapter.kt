@@ -24,7 +24,9 @@ class EventsAdapter(private val eventsList: List<Event>) :
     }
 
     override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
-
+        holder.eventTime.text = eventsList[position].created
+        holder.eventTitle.text = eventsList[position].summary
+        holder.eventDetails.text = eventsList[position].description
     }
 
     override fun getItemCount(): Int {

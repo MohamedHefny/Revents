@@ -13,4 +13,8 @@ class EventsViewModel : ViewModel() {
     fun getEvents(): LiveData<List<Event>>? {
         return EventsRepo.getEvents()
     }
+
+    fun getLoadingStatus(): LiveData<Boolean> {
+        return EventsRepo.isLoading()
+    }
 }
