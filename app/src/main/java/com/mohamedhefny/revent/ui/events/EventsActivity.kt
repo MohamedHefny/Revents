@@ -1,5 +1,6 @@
 package com.mohamedhefny.revent.ui.events
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
@@ -23,6 +24,9 @@ class EventsActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener
         observeLoading()
 
         events_refresh_layout.setOnRefreshListener(this)
+
+        //Service to update events every 30 seconds
+        startService(Intent(this, EventsUpdateService::class.java))
     }
 
     /**
@@ -36,6 +40,9 @@ class EventsActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener
         })
     }
 
+    /**
+     * Observe loading state to update the ui with indicator
+     **/
     private fun observeLoading() {
         eventsViewModel.getLoadingStatus().observe(this, Observer {
             events_refresh_layout.isRefreshing = it
@@ -48,5 +55,10 @@ class EventsActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener
     override fun onRefresh() {
         //Refresh and reload events again
         eventsViewModel.getEvents()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        stopService(Intent(this, EventsUpdateService::class.java))
     }
 }

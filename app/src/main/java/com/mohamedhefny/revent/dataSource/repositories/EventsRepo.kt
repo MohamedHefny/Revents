@@ -1,6 +1,7 @@
 package com.mohamedhefny.revent.dataSource.repositories
 
 import android.os.Handler
+import android.os.Looper
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.mohamedhefny.revent.dataSource.entities.Event
@@ -22,7 +23,7 @@ object EventsRepo {
         //TODO: Load events from Google Calendar API
         loadingState.postValue(true)
 
-        Handler().postDelayed({
+        Handler(Looper.getMainLooper()).postDelayed({
             val eventsSummary = "EmailAddress@domain.com"
             val eventsData = mutableListOf<Event>()
             val events = EventsData(eventsSummary, eventsData)
@@ -50,6 +51,10 @@ object EventsRepo {
         }, 1000)
 
         return eventsList
+    }
+
+    fun updateEvents() {
+        //TODO: Load events list and compare it with the current list, if their are equal, then don't update ui
     }
 
     fun isLoading(): LiveData<Boolean> {
