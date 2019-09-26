@@ -27,6 +27,20 @@ class EventsAdapter(private val eventsList: List<Event>) :
         holder.eventTime.text = eventsList[position].created
         holder.eventTitle.text = eventsList[position].summary
         holder.eventDetails.text = eventsList[position].description
+
+        when (eventsList[position].status) {
+            "confirmed" -> {
+                holder.rejectBtn.visibility = View.GONE
+                holder.statusConfirmed.visibility = View.VISIBLE
+                holder.statusConfirmed.setText(R.string.confirmed)
+            }
+            "denied" -> {
+                holder.acceptBtn.visibility = View.GONE
+                holder.statusDenied.visibility = View.VISIBLE
+                holder.statusDenied.setText(R.string.denied)
+            }
+            //TODO: Check if there is any other status!
+        }
     }
 
     override fun getItemCount(): Int {
@@ -43,5 +57,7 @@ class EventsAdapter(private val eventsList: List<Event>) :
         var weatherIcon = itemView.findViewById<ImageView>(R.id.item_event_weather_ic)
         var acceptBtn = itemView.findViewById<ImageView>(R.id.item_event_accept_ic)
         var rejectBtn = itemView.findViewById<ImageView>(R.id.item_event_reject_ic)
+        var statusConfirmed = itemView.findViewById<TextView>(R.id.item_event_confirmed)
+        var statusDenied = itemView.findViewById<TextView>(R.id.item_event_status_denied)
     }
 }

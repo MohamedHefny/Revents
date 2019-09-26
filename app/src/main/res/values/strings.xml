@@ -5,4 +5,7 @@
 
     <string name="SERVER_CLIENT_ID">PUT YOUR CLIENT_ID HERE</string>
 
+    <!--    Messages and actions-->
+    <string name="confirmed">Confirmed</string>
+    <string name="denied">Denied</string>
 </resources>

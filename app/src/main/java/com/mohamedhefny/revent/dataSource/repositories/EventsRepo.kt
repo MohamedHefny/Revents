@@ -31,7 +31,7 @@ object EventsRepo {
             for (i in 1..7) {
                 val event = Event(
                     i.toString(),
-                    "confirmed",
+                    if (i % 2 == 1) "confirmed" else "denied",
                     "2019-0$i-22T1$i:00:49.000Z",
                     "2019-0$i-22T1$i:00:49.000Z",
                     "Event dummy title $i",
