@@ -9,7 +9,6 @@
     <dimen name="event_item_corners">12dp</dimen>
     <dimen name="event_item_title_size">18sp</dimen>
     <dimen name="event_item_details_size">14sp</dimen>
-
-
-
+    <dimen name="event_item_weather_ic_width">24dp</dimen>
+    <dimen name="event_item_weather_ic_height">24dp</dimen>
 </resources>

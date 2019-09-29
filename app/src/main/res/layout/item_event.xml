@@ -51,6 +51,16 @@
         tools:text="Mon 19, Aug 2019" />
 
     <TextView
+        android:id="@+id/item_event_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccept"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/item_event_date_tv"
+        app:layout_constraintTop_toTopOf="@id/item_event_date_tv"
+        tools:text="Confirmed" />
+
+    <TextView
         android:id="@+id/item_event_title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -77,10 +87,11 @@
 
     <ImageView
         android:id="@+id/item_event_weather_ic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/event_item_weather_ic_width"
+        android:layout_height="@dimen/event_item_weather_ic_height"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:scaleType="centerCrop"
         android:src="@drawable/ic_weather"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/item_event_details_tv"
@@ -117,17 +128,6 @@
         app:layout_constraintBottom_toBottomOf="@id/item_event_weather_ic"
         app:layout_constraintEnd_toStartOf="@id/item_event_reject_ic" />
 
-    <TextView
-        android:id="@+id/item_event_confirmed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@id/item_event_accept_ic"
-        app:layout_constraintStart_toStartOf="@id/item_event_accept_ic"
-        app:layout_constraintTop_toBottomOf="@id/item_event_weather_ic"
-        tools:text="Confirmed" />
-
     <ImageView
         android:id="@+id/item_event_reject_ic"
         android:layout_width="wrap_content"
@@ -137,16 +137,4 @@
         app:layout_constraintBottom_toBottomOf="@id/item_event_accept_ic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/item_event_accept_ic" />
-
-    <TextView
-        android:id="@+id/item_event_status_denied"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:textColor="@android:color/white"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="@id/item_event_reject_ic"
-        app:layout_constraintStart_toStartOf="@id/item_event_reject_ic"
-        app:layout_constraintTop_toBottomOf="@id/item_event_reject_ic"
-        tools:text="Denied" />
 </androidx.constraintlayout.widget.ConstraintLayout>

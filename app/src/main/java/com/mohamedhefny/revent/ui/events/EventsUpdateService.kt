@@ -41,8 +41,8 @@ class EventsUpdateService : Service() {
     private fun initializeTimerTask() {
         timerTask = object : TimerTask() {
             override fun run() {
-                //TODO: CAll {EventsRepo.updateEvents()} instead of {EventsRepo.getEvents()}
-                EventsRepo.getEvents()
+                //TODO: CAll {EventsRepo.updateEvents()} instead of {EventsRepo.loadEvents()}
+                EventsRepo.loadEvents()
             }
         }
     }

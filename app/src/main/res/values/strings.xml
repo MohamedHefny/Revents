@@ -3,7 +3,8 @@
     <string name="events">Events</string>
     <string name="setup_slogan">Start playing with events</string>
 
-    <string name="SERVER_CLIENT_ID">PUT YOUR CLIENT_ID HERE</string>
+    <string name="SERVER_CLIENT_ID">205119856244-e5jfh7veo0nuifs58rtkggsqm207568b.apps.googleusercontent.com</string>
+    <string name="WEATHER_API_KEY">f663b908ecfe636ed5c0fbf36a7dcb9f</string>
 
     <!--    Messages and actions-->
     <string name="confirmed">Confirmed</string>

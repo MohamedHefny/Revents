@@ -1,5 +1,6 @@
 package com.mohamedhefny.revent.ui.events
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.mohamedhefny.revent.R
 import com.mohamedhefny.revent.dataSource.entities.Event
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_event.view.*
 
 class EventsAdapter(private val eventsList: List<Event>) :
@@ -24,23 +26,34 @@ class EventsAdapter(private val eventsList: List<Event>) :
     }
 
     override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
-        holder.eventTime.text = eventsList[position].created
-        holder.eventTitle.text = eventsList[position].summary
+        holder.eventTime.text = eventsList[position].startTime.eventTime.substringAfter("T")
+        holder.eventDate.text = eventsList[position].startTime.eventTime.substringBefore("T")
+        holder.eventTitle.text = eventsList[position].eventTitle
         holder.eventDetails.text = eventsList[position].description
 
         when (eventsList[position].status) {
-            "confirmed" -> {
-                holder.rejectBtn.visibility = View.GONE
-                holder.statusConfirmed.visibility = View.VISIBLE
-                holder.statusConfirmed.setText(R.string.confirmed)
-            }
+            "confirmed" -> holder.status.setText(R.string.confirmed)
             "denied" -> {
-                holder.acceptBtn.visibility = View.GONE
-                holder.statusDenied.visibility = View.VISIBLE
-                holder.statusDenied.setText(R.string.denied)
+                holder.status.setTextColor(Color.parseColor("#ef4b4b"))
+                holder.status.setText(R.string.denied)
             }
             //TODO: Check if there is any other status!
         }
+
+        holder.weatherTemp.text =
+            "T ".plus(eventsList[position].weatherForecast?.temp?.dayTemp.toString()).plus(" C")
+
+        holder.weatherHum.text =
+            "H ".plus(eventsList[position].weatherForecast?.humidity.toString()).plus(" %")
+
+        Picasso.get()
+            .load(
+                "http://openweathermap.org/img/w/" +
+                        "${eventsList[position].weatherForecast?.condition?.get(0)?.icon}" +
+                        ".png"
+            )
+            .error(R.drawable.ic_weather_off)
+            .into(holder.weatherIcon)
     }
 
     override fun getItemCount(): Int {
@@ -57,7 +70,6 @@ class EventsAdapter(private val eventsList: List<Event>) :
         var weatherIcon = itemView.findViewById<ImageView>(R.id.item_event_weather_ic)
         var acceptBtn = itemView.findViewById<ImageView>(R.id.item_event_accept_ic)
         var rejectBtn = itemView.findViewById<ImageView>(R.id.item_event_reject_ic)
-        var statusConfirmed = itemView.findViewById<TextView>(R.id.item_event_confirmed)
-        var statusDenied = itemView.findViewById<TextView>(R.id.item_event_status_denied)
+        var status = itemView.findViewById<TextView>(R.id.item_event_status)
     }
 }

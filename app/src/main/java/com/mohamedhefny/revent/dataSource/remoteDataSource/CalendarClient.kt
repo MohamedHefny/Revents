@@ -1,14 +1,16 @@
 package com.mohamedhefny.revent.dataSource.remoteDataSource
 
+import androidx.lifecycle.LiveData
 import com.google.api.client.util.DateTime
 import com.google.api.client.http.javanet.NetHttpTransport
 import com.google.api.client.googleapis.auth.oauth2.GoogleCredential
 import com.google.api.client.json.jackson2.JacksonFactory
 import com.google.api.services.calendar.Calendar
+import com.mohamedhefny.revent.dataSource.entities.Events
 import java.io.IOException
 
 
-internal class CalendarClient(token: String) {
+class CalendarClient(token: String) {
 
     companion object {
         private val APPLICATION_NAME = "Revent"
@@ -19,8 +21,7 @@ internal class CalendarClient(token: String) {
     private val credentials = GoogleCredential().setAccessToken(token)
 
     @Throws(IOException::class)
-    //TODO refactor this method to return a LiveData object
-    fun printEventsList() {
+    fun getEventsList(): LiveData<List<Events>>? {
         // Build a new authorized API client service.
         val service = Calendar.Builder(NetHttpTransport(), JSON_FACTORY, credentials)
             .setApplicationName(APPLICATION_NAME)
@@ -29,7 +30,7 @@ internal class CalendarClient(token: String) {
         // List the next 10 events from the primary calendar.
         val now = DateTime(System.currentTimeMillis())
         val events = service.events().list("primary")
-            .setMaxResults(10)
+            .setMaxResults(15)
             .setTimeMin(now)
             .setOrderBy("startTime")
             .setSingleEvents(true)
@@ -38,14 +39,8 @@ internal class CalendarClient(token: String) {
         if (items.isEmpty()) {
             println("No upcoming events found.")
         } else {
-            println("Upcoming events")
-            for (event in items) {
-                var start = event.start.dateTime
-                if (start == null) {
-                    start = event.start.date
-                }
-                System.out.printf("%s (%s)\n", event.summary, start)
-            }
+            //TODO handel event response and return as a LiveData object
         }
+        return null
     }
 }
